@@ -1,0 +1,16 @@
+
+# Gerber output
+/dist/
+
+# netlists are generated
+*.net
+
+# KiCad caches
+/fp-lib-table/
+
+# assorted KiCad backup files
+*.bak
+*.bck
+*-bak
+_autosave-*
+_saved_*
