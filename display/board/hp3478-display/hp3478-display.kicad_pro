@@ -368,6 +368,27 @@
         "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6.0
+      },
+      {
+        "bus_width": 12.0,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "Power",
+        "nets": [
+          "+5V",
+          "GND"
+        ],
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.508,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "wire_width": 6.0
       }
     ],
     "meta": {
@@ -428,6 +449,54 @@
     [
       "075dc76e-9379-4457-8e50-160da3a4d686",
       ""
+    ],
+    [
+      "a02a9f23-494b-4654-bad5-fd847fe0e184",
+      "Digit0"
+    ],
+    [
+      "63a7f796-0179-4750-99e4-c067d935cd68",
+      "Digit1"
+    ],
+    [
+      "c94803d6-3fb0-4067-8455-eba8aae20c97",
+      "Digit2"
+    ],
+    [
+      "50c3e944-68e5-4087-b987-b61ed9116d46",
+      "Digit3"
+    ],
+    [
+      "b4b6089a-acc2-4b59-9c19-2b566d3d40dc",
+      "Digit4"
+    ],
+    [
+      "c084cb3d-4d1a-469a-b18c-9f16356a9f77",
+      "Digit5"
+    ],
+    [
+      "b81c08b7-a499-412f-866c-a434b2995e5d",
+      "Digit6"
+    ],
+    [
+      "3ac1db64-0fcc-4b47-8af9-c85e531c2cd0",
+      "Digit7"
+    ],
+    [
+      "aef4c28e-4299-4d45-8c6a-297b9015bd9c",
+      "Digit8"
+    ],
+    [
+      "2a45ee7d-9a56-4802-9561-785a6cf51a06",
+      "Digit9"
+    ],
+    [
+      "617078ec-7404-4cf1-b3bc-fdc0757a1cd1",
+      "Digit10"
+    ],
+    [
+      "0e21d3a4-88e2-4663-87dc-0e24febcdd75",
+      "Digit11"
     ]
   ],
   "text_variables": {}
