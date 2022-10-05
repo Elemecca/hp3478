@@ -149,7 +149,7 @@
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp 8687fdae-1869-4afc-8852-81b3f2e1cf5c)
     )
-    (fp_text value "PIC16F152xx-x_MP" (at 0 -3.82) (layer "B.Fab")
+    (fp_text value "PIC16F15274-I/MP" (at 0 -3.46875) (layer "B.Fab")
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp 53696686-6312-40b4-846c-f04f11b218f5)
     )
@@ -4353,17 +4353,18 @@
     (tags "QFP 0.8")
     (property "Sheetfile" "hp3478-display.kicad_sch")
     (property "Sheetname" "")
+    (property "exclude_from_bom" "")
     (path "/344cc245-2c6a-4a04-b559-c2e8c4d256b6")
-    (attr smd)
+    (attr smd exclude_from_pos_files exclude_from_bom)
     (fp_text reference "U2" (at 0 7.45) (layer "B.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp 2e8f2da3-dced-4205-be98-35ee6d980888)
     )
-    (fp_text value "PIC16F152xx-x_PT" (at 0 -7.45) (layer "B.Fab")
+    (fp_text value "DNP" (at 0 -5.86875) (layer "B.Fab")
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp 3d01a1a3-5a4f-4d21-8ded-052c61c7e43a)
     )
-    (fp_text user "${REFERENCE}" (at 0 0) (layer "B.Fab")
+    (fp_text user "${REFERENCE}" (at 0 4.13125) (layer "B.Fab")
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp 26e8cbb3-6d60-4e43-8d47-2fe0c3e9af1e)
     )
@@ -4613,6 +4614,136 @@
     (members
       86c52e31-93ad-44f6-a9e3-d44a82ee85c0
       f236ad69-01d2-440a-9df4-aa28e46683f0
+    )
+  )
+  (group "" (id 6e3d8511-2586-4d9e-937b-9cb906607ab9)
+    (members
+      025682ff-41e6-48d6-90bc-8bc9fd15746c
+      0283738d-a418-4d7b-9e19-75ddbebbf050
+      06bb3c45-8662-472c-9176-38043edc8433
+      08d35165-bb31-44e7-9429-80a805175552
+      0a7519a3-5bb3-4d21-a876-66e5dc7dcb8d
+      0e3858fa-84b2-4190-b5dc-bcf350b77c61
+      101c4e56-94ee-448a-ae09-c0221e6f2d51
+      145eaf54-18e0-4b79-ba03-246c116e8f69
+      15e94442-0598-4a45-91b8-03f9b70ef5a3
+      16da12bf-2bc4-4194-ac8b-406fff70d2c3
+      1715dd60-2482-4e23-bc5e-3ba31d700b6f
+      1890f8e7-7f4d-463f-aff9-8671ab63580d
+      192e3839-8763-4b24-a518-5f7d4922fde5
+      1a80f237-de71-4763-80b9-d5010554198d
+      1c2f6f5d-567d-492e-90b1-d03751b21de6
+      1e06e057-1898-481f-9c88-3f5ebfa1e2fc
+      2028c6f6-e3dc-4ebc-aa0a-1362c4c273f7
+      21570638-80d9-4bae-a6cb-664d093151eb
+      2b77d2c8-977c-4773-b0bd-bde5d2c77fbc
+      2c354cff-9b07-49b8-ba75-7a25afc01f8d
+      2d844d1e-d000-4622-833b-a95b405f524e
+      2f1c99e4-9708-4779-a084-75db109c2f9c
+      2ffade97-e93c-4eaa-aabd-0226b2760495
+      345a010e-1fef-4904-91f1-bda43f6b94d0
+      34ce5afb-6d00-4f5b-96d5-474654a69470
+      37c44871-b5ca-4b38-aea3-1001c85da830
+      38ca2c34-44e4-4c73-9ecb-227d72018ede
+      4341d2f5-8f69-4bb4-89b6-485b5ccc8d94
+      48f444ee-de87-45be-b1f9-c20f4807963d
+      4db15927-cf44-4c49-9d54-4b4de7338f36
+      4eb2b707-4e67-4a79-8fa4-d5b3344d5c35
+      500f0cbe-700d-4821-bc8f-60759eeacedf
+      50c01e0b-0ee6-472b-9333-2379db306fa4
+      522140c8-51df-4cb0-80d1-d66afb59c4b8
+      530f5c91-5b5c-418c-b140-c1ccb08f07bb
+      54c19f1b-d006-4448-b08e-ed09ffd527e8
+      5bf72b43-8bfb-4f08-808e-46a6203671c8
+      5c8c4710-eed1-4240-878e-82181da0927d
+      5d507657-9866-419e-8279-080b059aeacd
+      5fac6f2c-6c6b-43ac-8c10-2c6f79dc15c3
+      60ea5389-bad7-4455-8498-5ab0665097fa
+      6580a8f1-f2ac-4be7-a759-ec333c75ea6f
+      67b13574-aef6-4e34-a5da-0348eaf75eff
+      683e9974-205a-4b76-84d5-c61235e00cdf
+      69365ee1-a7b1-43a5-8bad-a7db095cd6be
+      6c9397ea-235b-4ac5-ae90-efeac14b9162
+      7453fe99-c82a-4f4c-a960-c47a3c9abc0f
+      7adde682-d9cf-422d-8b9e-de7041a547f6
+      7b3583d4-0dcd-478a-9b70-53631796ddab
+      7b6b4f66-b8ef-4714-8f97-ea658228ba10
+      7d41948f-1b4b-4190-b337-199c340481b0
+      7d8cd68e-53e9-4780-a7b5-81e893b4aa44
+      7f1df24b-7067-45e9-8d0d-c04f6979bd1a
+      80d0327f-3161-4396-8853-6ca9f9deef36
+      81a76000-c235-495d-badf-e67f0e22323d
+      820e6614-d287-4578-9e51-4bf87f4b5f3c
+      82da71be-ab20-4e92-88af-ef4b842e5e4d
+      830267ac-4842-41eb-85aa-0bdeaf4c5da1
+      83f673a8-bf08-4bb5-a175-211bee14410e
+      83f68b42-ad69-4a08-a66f-0f1ad597741f
+      8976d532-97e7-4390-a5ee-ff48eeba3bc3
+      8d60349a-2b6c-4737-b106-263838d93f65
+      8f6142be-d54e-4d35-94e1-84ddd3d928f6
+      8f89d360-3807-4139-b3b1-4daea565fc2c
+      905a91b7-0f34-44b1-a98b-4c84c5d3c34e
+      93c134d8-7f21-4c40-8af1-1590fcb8ea30
+      9693fdcf-ada8-4fa4-902a-d7bcc7cb52e6
+      9ac5a0d4-3a85-4749-8d01-72dc6705821e
+      9e2301b9-18b8-493f-b249-928001b48921
+      9e802228-d3ca-450d-b5c2-e1e0526f26b0
+      9f70f681-a65d-4bfe-9163-cd3986453b6a
+      a2651f45-f233-4f7f-891c-41cf7e834619
+      a51fe366-2aae-45c2-aff7-f7f2d42fdd5c
+      acfde106-6ae1-4e80-ad04-4b11c2077337
+      ad824e11-9e43-4081-a47a-41356cebcfa1
+      ad8984a6-46a2-46bf-b149-408e18283ee8
+      ada6ff82-316c-40eb-ac3b-dee42e3d0fe0
+      adebfdb4-2d29-4cab-bad6-861392e3a973
+      aea8aee0-6918-4849-8951-0758496f3f77
+      af461771-7716-49bc-b6e1-a0cd07300201
+      b04d9136-b36c-4fd5-81bf-de6d48d242fd
+      b26fcc2b-fcf2-4a0d-bd8e-73c5c37df574
+      b2df7048-676f-4e9f-a937-85724a31c4da
+      b30e7e2d-9e8f-427b-b3de-40406137f752
+      b6e7d491-e815-46fe-a70b-e4e69542d985
+      b7a6e4bf-85bd-459a-8fae-cc24559051f6
+      bae503f5-737d-431e-ad8e-a732e1761b1b
+      bb3598e4-5f7d-4578-8eaf-08a0b2819f65
+      bba42b20-991e-4b6c-94ce-3b8912e848cc
+      bcafb699-73d4-48c1-8afc-c47ad2e6a319
+      bdda3f47-5fbc-4808-9d0b-3855365750ce
+      bf88b221-8c08-490d-8b1e-a107943edec0
+      c29e7f6c-6f8d-4f9c-973a-28026f9df1fb
+      c3786e45-6ed3-4e76-b21e-8784af082722
+      c50321ff-67fb-48a0-8459-fb8f04cc8330
+      c54809be-ddf7-4216-9bbe-d9ddd9bf1732
+      c5be51fb-343e-4a7f-b84b-60e8d21d866d
+      c9b8864b-ae54-495f-b221-7e6ec6c709a7
+      c9c9879b-016f-4837-ba81-059978bb2217
+      cae04ccc-ad7f-4d0e-bf06-386c7f95600e
+      cb28fc78-1799-48b6-b37d-a09e1e163ce1
+      cc302e30-08b3-40db-aea0-b70b83d47abb
+      cdaa8dca-88ad-4603-92ae-986a07685d3f
+      ce3cb9d7-7434-4c77-b49b-2743514ac2a5
+      d159ef80-b12c-4e4a-aac0-afe11b2aec94
+      d29bf029-20ec-498e-be4e-c731095d4b1c
+      d40135aa-c7cf-4a39-bd89-b1cadf488601
+      d9eac05d-343d-4b7c-87bd-ad8d3e738c26
+      df706935-3d1e-4b15-88b7-5f1ff1db0a64
+      e151b0ae-22d3-42f0-9fe4-0c76aee5e999
+      e36cef3a-00eb-428e-9a9e-5131e3191c38
+      e4e6bbe8-07a7-4fb3-a0ae-6e9f37464af7
+      e78e093a-b123-4233-8561-fb03e3faea37
+      e966890e-eb82-4482-bc0b-29c4cf736c9a
+      ea4d7fe6-ecb5-43fb-ae57-831410ea04c6
+      eb69106c-0a9f-4a6d-a725-65b06b5e0b18
+      eeacf475-42ac-4bbf-9966-97cc2bc637b5
+      ef24ac46-bc25-4a7c-aa47-53476bd5946b
+      f0499eab-fd69-47ae-bb8d-398502b2c35d
+      f38d1269-e152-43a2-a5fb-8e475846296c
+      f598361e-a767-4b5c-9b02-25b6d9b4113d
+      f7faf08c-a933-42b4-98d3-8e0e6d71c15a
+      fa3df00a-d72e-4478-93cc-9db95d7fea60
+      fbe8cd0b-c8ed-4616-b227-c8d81f4376d0
+      fd9cbe53-3183-4ef6-9c97-89df52042272
+      fe106c02-263d-4825-b67a-7fea6b9da52e
     )
   )
 )
