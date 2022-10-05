@@ -153,6 +153,18 @@
   (net 54 "/K8")
   (net 55 "/K7")
   (net 56 "unconnected-(J2-Pad6)")
+  (net 57 "Net-(D218-Pad2)")
+  (net 58 "Net-(D318-Pad2)")
+  (net 59 "Net-(D418-Pad2)")
+  (net 60 "Net-(D518-Pad2)")
+  (net 61 "Net-(D618-Pad2)")
+  (net 62 "Net-(D718-Pad2)")
+  (net 63 "Net-(D818-Pad2)")
+  (net 64 "Net-(D918-Pad2)")
+  (net 65 "Net-(D1018-Pad2)")
+  (net 66 "Net-(D1118-Pad2)")
+  (net 67 "Net-(D1218-Pad2)")
+  (net 68 "Net-(D1318-Pad2)")
 
   (footprint "LED_SMD:LED_0402_1005Metric" (layer "F.Cu")
     (tedit 5F68FEF1) (tstamp 028e898a-54e4-46bb-a33f-a5aac2bc38be)
@@ -232,7 +244,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 54 "/K8") (pinfunction "K") (pintype "passive") (tstamp 7380c5a1-04e1-4c2f-a364-543b1172c02d))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 39ee74ef-c790-4fb1-ad20-0b13bbd312b0))
+      (net 65 "Net-(D1018-Pad2)") (pinfunction "A") (pintype "passive") (tstamp 39ee74ef-c790-4fb1-ad20-0b13bbd312b0))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -275,7 +287,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 42 "/K6") (pinfunction "K") (pintype "passive") (tstamp bbbcdeb2-af34-4185-b06c-fd36ed865671))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp bae85c82-296c-43b2-a0ac-ac39d521c518))
+      (net 63 "Net-(D818-Pad2)") (pinfunction "A") (pintype "passive") (tstamp bae85c82-296c-43b2-a0ac-ac39d521c518))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -1049,7 +1061,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 47 "/K3") (pinfunction "K") (pintype "passive") (tstamp 4e6c664b-3c25-4ea7-9208-de735ac86c90))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 66cc71fb-9bcc-4588-9a64-ef01c2f1b6a2))
+      (net 60 "Net-(D518-Pad2)") (pinfunction "A") (pintype "passive") (tstamp 66cc71fb-9bcc-4588-9a64-ef01c2f1b6a2))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -2294,7 +2306,7 @@
     (fp_line (start 0.5 -0.25) (end 0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp a0f387a2-540d-4c34-9b40-b64476c94f42))
     (fp_line (start -0.5 0.25) (end -0.5 -0.25) (layer "F.Fab") (width 0.1) (tstamp a935868b-3dd8-4c76-a184-ad07dbc4c943))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 49 "/K1") (pinfunction "K") (pintype "passive") (tstamp 9fab8313-ef74-4844-b3fc-1e1a383c7e32))
+      (net 58 "Net-(D318-Pad2)") (pinfunction "K") (pintype "passive") (tstamp 9fab8313-ef74-4844-b3fc-1e1a383c7e32))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 22e2c9e9-2275-4dd9-a0c4-9ffe6ddb97ef))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -2724,7 +2736,7 @@
     (fp_line (start -0.5 -0.25) (end 0.5 -0.25) (layer "F.Fab") (width 0.1) (tstamp cab3085d-1a72-4683-87fb-4a2b6a6c20d1))
     (fp_line (start -0.4 0.25) (end -0.4 -0.25) (layer "F.Fab") (width 0.1) (tstamp f9de0cac-1fc5-4c82-9cdd-6884491425f4))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 46 "/K4") (pinfunction "K") (pintype "passive") (tstamp e2e23925-21f8-4421-9037-5c6097141a5b))
+      (net 61 "Net-(D618-Pad2)") (pinfunction "K") (pintype "passive") (tstamp e2e23925-21f8-4421-9037-5c6097141a5b))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 04d7961c-6769-48bd-a732-3b74ed16a359))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -3197,7 +3209,7 @@
     (fp_line (start 0.5 0.25) (end -0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp c06d5ca7-76f7-4676-83bb-0ac6ca452f21))
     (fp_line (start -0.4 0.25) (end -0.4 -0.25) (layer "F.Fab") (width 0.1) (tstamp cc14e7a7-08a1-4543-bd87-65aff0272765))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 50 "/K0") (pinfunction "K") (pintype "passive") (tstamp e2cf1c9b-a73b-429e-9110-c7ea9fdd92d8))
+      (net 57 "Net-(D218-Pad2)") (pinfunction "K") (pintype "passive") (tstamp e2cf1c9b-a73b-429e-9110-c7ea9fdd92d8))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 0088e47a-bb7a-4074-a795-ea07cf31acc1))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -3326,7 +3338,7 @@
     (fp_line (start -0.5 0.25) (end -0.5 -0.25) (layer "F.Fab") (width 0.1) (tstamp 988a7504-77be-4d4a-a7ae-b45123c9a4b6))
     (fp_line (start 0.5 0.25) (end -0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp da48afb3-67dc-4c96-b1a6-22d2a415eca2))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 47 "/K3") (pinfunction "K") (pintype "passive") (tstamp 5463a280-0148-49e6-8f5e-5901a36f9824))
+      (net 60 "Net-(D518-Pad2)") (pinfunction "K") (pintype "passive") (tstamp 5463a280-0148-49e6-8f5e-5901a36f9824))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 6a5189ad-3aa2-47cb-9149-98e420df55fa))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -3885,7 +3897,7 @@
     (fp_line (start -0.5 -0.25) (end 0.5 -0.25) (layer "F.Fab") (width 0.1) (tstamp d0c76106-07a0-40fd-8198-f294b7da9e58))
     (fp_line (start -0.4 0.25) (end -0.4 -0.25) (layer "F.Fab") (width 0.1) (tstamp f5c6f0f3-8ca7-43d8-9384-eaa5ac5a498a))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 45 "/K9") (pinfunction "K") (pintype "passive") (tstamp fc14c043-6d2a-4384-8355-609e0c1367f7))
+      (net 66 "Net-(D1118-Pad2)") (pinfunction "K") (pintype "passive") (tstamp fc14c043-6d2a-4384-8355-609e0c1367f7))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 3562e83c-d4de-4eb5-b26c-411af5d99611))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -3930,7 +3942,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 50 "/K0") (pinfunction "K") (pintype "passive") (tstamp 431462fe-2b62-40e1-87a3-b85639d5ffbf))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp e83a255e-ddbe-423f-935b-fbaf4d952ab5))
+      (net 57 "Net-(D218-Pad2)") (pinfunction "A") (pintype "passive") (tstamp e83a255e-ddbe-423f-935b-fbaf4d952ab5))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -4143,7 +4155,7 @@
     (fp_line (start 0.5 -0.25) (end 0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp cc636870-98f6-4f10-9616-2707b88c16d1))
     (fp_line (start -0.4 0.25) (end -0.4 -0.25) (layer "F.Fab") (width 0.1) (tstamp ef1047bf-f5e3-43db-abcf-9a3522b7fb12))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 48 "/K2") (pinfunction "K") (pintype "passive") (tstamp 57557adc-daba-4090-8f63-43aa7e24735c))
+      (net 59 "Net-(D418-Pad2)") (pinfunction "K") (pintype "passive") (tstamp 57557adc-daba-4090-8f63-43aa7e24735c))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp ee60db17-7e60-4b60-a367-0985a4df4b93))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -4188,7 +4200,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 44 "/K10") (pinfunction "K") (pintype "passive") (tstamp 565c978b-b483-49a5-8ebf-1947e38447d4))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 2df7f0f5-19bf-4117-8227-996fb39dc006))
+      (net 67 "Net-(D1218-Pad2)") (pinfunction "A") (pintype "passive") (tstamp 2df7f0f5-19bf-4117-8227-996fb39dc006))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -4229,7 +4241,7 @@
     (fp_line (start 0.5 0.25) (end -0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp b6ec07cc-0465-4055-aa18-bd46a625c295))
     (fp_line (start -0.5 0.25) (end -0.5 -0.25) (layer "F.Fab") (width 0.1) (tstamp de865b1c-e684-4e56-be31-5a9a102fbba4))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 42 "/K6") (pinfunction "K") (pintype "passive") (tstamp 5be1d2ae-34da-443b-95f9-8b9e13c3ef3c))
+      (net 63 "Net-(D818-Pad2)") (pinfunction "K") (pintype "passive") (tstamp 5be1d2ae-34da-443b-95f9-8b9e13c3ef3c))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp b08811d4-836b-40ba-980a-7f97c4ab7b9c))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -4702,7 +4714,7 @@
     (fp_line (start 0.5 -0.25) (end 0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp aaa00a66-36e7-4917-badb-1a95de088ca6))
     (fp_line (start 0.5 0.25) (end -0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp bf73e69c-4ec3-47f7-9a4f-7be507b6d9cb))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 44 "/K10") (pinfunction "K") (pintype "passive") (tstamp e9730437-38f4-4cee-86bc-3c0dd0d47202))
+      (net 67 "Net-(D1218-Pad2)") (pinfunction "K") (pintype "passive") (tstamp e9730437-38f4-4cee-86bc-3c0dd0d47202))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 5d768a04-ffe6-4c4e-9317-58066364d0ff))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -5003,7 +5015,7 @@
     (fp_line (start -0.5 -0.25) (end 0.5 -0.25) (layer "F.Fab") (width 0.1) (tstamp a63e3085-1b21-4aa4-b93f-37e60ad30af9))
     (fp_line (start -0.4 0.25) (end -0.4 -0.25) (layer "F.Fab") (width 0.1) (tstamp e86b14f0-ec2b-48a8-886b-5320cbd2994f))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 43 "/K11") (pinfunction "K") (pintype "passive") (tstamp 5ca668a9-cc13-4011-90fa-e378febe86b4))
+      (net 68 "Net-(D1318-Pad2)") (pinfunction "K") (pintype "passive") (tstamp 5ca668a9-cc13-4011-90fa-e378febe86b4))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 36a22609-b33c-4ef3-aedb-4963724b2225))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -5220,7 +5232,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 49 "/K1") (pinfunction "K") (pintype "passive") (tstamp 6ef27693-ee67-497a-a056-c920c3369763))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp a232e416-7963-4282-b597-9403dc5a7677))
+      (net 58 "Net-(D318-Pad2)") (pinfunction "A") (pintype "passive") (tstamp a232e416-7963-4282-b597-9403dc5a7677))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -5478,7 +5490,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 43 "/K11") (pinfunction "K") (pintype "passive") (tstamp 74be2b46-f3a2-4d58-a880-a24855468300))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 6f48150a-2530-4410-90db-b4b7b3865d19))
+      (net 68 "Net-(D1318-Pad2)") (pinfunction "A") (pintype "passive") (tstamp 6f48150a-2530-4410-90db-b4b7b3865d19))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -5822,7 +5834,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 46 "/K4") (pinfunction "K") (pintype "passive") (tstamp 4201c635-c828-4594-9790-b005bdd56081))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp e2ba3f4b-409e-404e-9d16-cd0831308be7))
+      (net 61 "Net-(D618-Pad2)") (pinfunction "A") (pintype "passive") (tstamp e2ba3f4b-409e-404e-9d16-cd0831308be7))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -5863,7 +5875,7 @@
     (fp_line (start -0.4 0.25) (end -0.4 -0.25) (layer "F.Fab") (width 0.1) (tstamp c6bcb8ae-81f0-49a1-ac9c-f2168ae1225b))
     (fp_line (start 0.5 -0.25) (end 0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp cce69210-0076-4ae2-b7c1-d8671b8ba8c0))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 55 "/K7") (pinfunction "K") (pintype "passive") (tstamp 50a74fa0-fa32-40db-9c6a-6e512cab74cc))
+      (net 64 "Net-(D918-Pad2)") (pinfunction "K") (pintype "passive") (tstamp 50a74fa0-fa32-40db-9c6a-6e512cab74cc))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp a74baed4-c76f-419e-9512-3c5bf75f896b))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -6080,7 +6092,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 48 "/K2") (pinfunction "K") (pintype "passive") (tstamp 0feb42e4-1725-4892-aa72-7fa0b2c092c1))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 63fc960e-23c2-44e7-92a8-74811d5b17ce))
+      (net 59 "Net-(D418-Pad2)") (pinfunction "A") (pintype "passive") (tstamp 63fc960e-23c2-44e7-92a8-74811d5b17ce))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -6293,7 +6305,7 @@
     (fp_line (start -0.5 -0.25) (end 0.5 -0.25) (layer "F.Fab") (width 0.1) (tstamp dd0ef709-81da-4141-931f-5e55dbcd0919))
     (fp_line (start 0.5 -0.25) (end 0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp e09c5105-56fb-4921-a795-75f9a6bd3767))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 54 "/K8") (pinfunction "K") (pintype "passive") (tstamp ef3ec189-5a36-41a2-a4b9-40306a1242d7))
+      (net 65 "Net-(D1018-Pad2)") (pinfunction "K") (pintype "passive") (tstamp ef3ec189-5a36-41a2-a4b9-40306a1242d7))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp ecc2c65f-9063-43ea-b289-1d2be8e19594))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -7241,7 +7253,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 45 "/K9") (pinfunction "K") (pintype "passive") (tstamp 128f7fba-6c30-4044-b524-0cd291b99924))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 6a6d05ee-ef97-4514-a731-337e167098bb))
+      (net 66 "Net-(D1118-Pad2)") (pinfunction "A") (pintype "passive") (tstamp 6a6d05ee-ef97-4514-a731-337e167098bb))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -7456,7 +7468,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 55 "/K7") (pinfunction "K") (pintype "passive") (tstamp 2c4b07ea-dff4-4556-8d11-b36907a045e5))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 07afa380-981e-4cb9-9f82-2bd73211f7ab))
+      (net 64 "Net-(D918-Pad2)") (pinfunction "A") (pintype "passive") (tstamp 07afa380-981e-4cb9-9f82-2bd73211f7ab))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -7671,7 +7683,7 @@
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 41 "/K5") (pinfunction "K") (pintype "passive") (tstamp 9c64736e-b2a4-4876-a505-16d35408e729))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 0ffb0161-163a-4bfd-bbe0-d0c83645f4b6))
+      (net 62 "Net-(D718-Pad2)") (pinfunction "A") (pintype "passive") (tstamp 0ffb0161-163a-4bfd-bbe0-d0c83645f4b6))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
@@ -8228,7 +8240,7 @@
     (fp_line (start -0.5 0.25) (end -0.5 -0.25) (layer "F.Fab") (width 0.1) (tstamp ea1de7cd-657f-4e73-9f5e-1b67f1719492))
     (fp_line (start 0.5 -0.25) (end 0.5 0.25) (layer "F.Fab") (width 0.1) (tstamp fda5887b-2477-454a-8b05-d52362f08012))
     (pad "1" smd roundrect (at -0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
-      (net 41 "/K5") (pinfunction "K") (pintype "passive") (tstamp 923e2934-b719-409a-89fc-536d0026ef73))
+      (net 62 "Net-(D718-Pad2)") (pinfunction "K") (pintype "passive") (tstamp 923e2934-b719-409a-89fc-536d0026ef73))
     (pad "2" smd roundrect (at 0.485 0 90) (size 0.59 0.64) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25)
       (net 40 "/A16") (pinfunction "A") (pintype "passive") (tstamp 4f6bdb28-1a77-4936-87d7-9ff47bd380b9))
     (model "${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0402_1005Metric.wrl"
@@ -14633,7 +14645,7 @@
     )
   )
 
-  (gr_rect (start 76.2 50.8) (end 206.375 80.9625) (layer "Edge.Cuts") (width 0.1) (fill none) (tstamp 45c40066-db3b-4c10-ab1d-85c74e77c880))
+  (gr_rect (start 76.2 50.8) (end 206.375 80.645) (layer "Edge.Cuts") (width 0.1) (fill none) (tstamp 45c40066-db3b-4c10-ab1d-85c74e77c880))
   (gr_text "${COMMENT1}\n${COMMENT2}" (at 192.2 77.8) (layer "B.SilkS") (tstamp 86c52e31-93ad-44f6-a9e3-d44a82ee85c0)
     (effects (font (size 1 1) (thickness 0.15)) (justify left mirror))
   )
