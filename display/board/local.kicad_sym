@@ -3,7 +3,7 @@
     (property "Reference" "#G" (id 0) (at -0.6858 9.017 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "Digit_Legend" (id 1) (at -0.635 -11.43 0)
+    (property "Value" "Digit_Legend" (id 1) (at -0.762 -8.89 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "" (id 2) (at 0 0 0)
@@ -13,10 +13,6 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (symbol "Digit_Legend_0_0"
-      (rectangle (start -5.715 -7.62) (end 1.905 -10.16)
-        (stroke (width 0.2032) (type default) (color 0 0 0 0))
-        (fill (type none))
-      )
       (polyline
         (pts
           (xy 3.5443 -7.8186)
@@ -1847,16 +1843,13 @@
       (text "F" (at 4.699 -6.35 0)
         (effects (font (size 1.016 1.016)))
       )
-      (text "G" (at -1.905 -8.89 0)
-        (effects (font (size 1.016 1.016)))
-      )
     )
   )
   (symbol "Digit_Legend_Large" (pin_names (offset 1.016)) (in_bom no) (on_board no)
     (property "Reference" "#G" (id 0) (at 0 27.305 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "Digit_Legend_Large" (id 1) (at 0 -39.37 0)
+    (property "Value" "Digit_Legend_Large" (id 1) (at 0 -24.638 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Footprint" "" (id 2) (at 0 0 0)
@@ -1866,10 +1859,6 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (symbol "Digit_Legend_Large_0_0"
-      (rectangle (start -20.32 -27.94) (end 7.62 -36.83)
-        (stroke (width 0.635) (type default) (color 0 0 0 0))
-        (fill (type none))
-      )
       (polyline
         (pts
           (xy 11.5395 -25.456)
@@ -3676,9 +3665,6 @@
         (effects (font (size 1.778 1.778)))
       )
       (text "15" (at 15.748 -20.066 0)
-        (effects (font (size 1.778 1.778)))
-      )
-      (text "16" (at -6.35 -32.385 0)
         (effects (font (size 1.778 1.778)))
       )
       (text "2" (at -10.16 14.224 0)
