@@ -63980,7 +63980,7 @@
     (effects (font (size 3.81 3.81)) (justify left bottom))
     (uuid 17aabbb7-76fd-413d-95fc-91715f920138)
   )
-  (text "Cathode Drivers" (at 15.24 154.94 0)
+  (text "Cathode Switches" (at 15.24 154.94 0)
     (effects (font (size 3.81 3.81)) (justify left bottom))
     (uuid 189b64e3-9c72-4f54-ba16-24bf9d05adcb)
   )

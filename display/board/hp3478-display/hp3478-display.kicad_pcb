@@ -580,7 +580,7 @@
     )
   )
 
-  (footprint "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" locked (layer "F.Cu")
+  (footprint "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" (layer "F.Cu")
     (tedit 5D9F72B1) (tstamp a0c9b119-98bd-4098-832a-6fda9a5ddb2f)
     (at 111.252 66.04 -90)
     (descr "SOIC, 16 Pin (JEDEC MS-012AC, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
@@ -655,7 +655,7 @@
 
   (footprint "Symbol:OSHW-Symbol_6.7x6mm_SilkScreen" (layer "F.Cu")
     (tedit 0) (tstamp a7273ed8-dfd8-4193-8866-821e15df56ee)
-    (at 86.995 74.93)
+    (at 130.302 76.708)
     (descr "Open Source Hardware Symbol")
     (tags "Logo Symbol OSHW")
     (attr board_only exclude_from_pos_files exclude_from_bom)
@@ -1050,7 +1050,7 @@
     )
   )
 
-  (footprint "Package_SO:SSOP-24_3.9x8.7mm_P0.635mm" locked (layer "F.Cu")
+  (footprint "Package_SO:SSOP-24_3.9x8.7mm_P0.635mm" (layer "F.Cu")
     (tedit 5A02F25C) (tstamp ba8c2979-dd0d-443c-832a-1984b8f7b8d7)
     (at 87.63 66.04 -90)
     (descr "SSOP24: plastic shrink small outline package; 24 leads; body width 3.9 mm; lead pitch 0.635; (see NXP SSOP-TSSOP-VSO-REFLOW.pdf and sot556-1_po.pdf)")
@@ -1166,7 +1166,7 @@
       (solder_mask_margin 0.5) (clearance 0.5) (tstamp 8de285c7-7052-4ca7-a480-5ff4657436c3))
   )
 
-  (footprint "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" locked (layer "F.Cu")
+  (footprint "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm" (layer "F.Cu")
     (tedit 5D9F72B1) (tstamp ce6dd53b-d5d0-4347-b171-e6f4540d332d)
     (at 170.688 66.04 -90)
     (descr "SOIC, 16 Pin (JEDEC MS-012AC, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
@@ -1241,7 +1241,7 @@
 
   (footprint "0Local:Symbol_Bonsai_6.7mm" (layer "F.Cu")
     (tedit 0) (tstamp dc3174fb-db78-4ca7-847f-77bd03fdba3c)
-    (at 80.995 74.93)
+    (at 124.302 76.708)
     (attr board_only exclude_from_pos_files exclude_from_bom)
     (fp_text reference "G***" (at 0 0) (layer "F.SilkS") hide
       (effects (font (size 1.524 1.524) (thickness 0.3)))
@@ -7181,7 +7181,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp 0471f63f-bfac-4586-8deb-76d059043f62)
     (at 97.3582 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -7319,7 +7319,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp 0868afdc-82f5-4df1-ac9b-298057d7987d)
     (at 146.8882 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -11398,7 +11398,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp 32af9e83-976b-47fc-a06c-3d1dcd157e20)
     (at 166.7002 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -12618,7 +12618,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp 51a5e6e4-cc48-43e3-9d63-a724451c849d)
     (at 196.4182 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -26413,7 +26413,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp a26b1d28-c40e-488a-87cb-209d8dcf7caa)
     (at 127.0762 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -26643,7 +26643,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp a693d073-e653-42e9-9f1f-5e76c01fae04)
     (at 117.1702 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -26827,7 +26827,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp a936df32-d8c6-4a09-8406-4edcb4995413)
     (at 186.5122 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -29204,7 +29204,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp af970f7b-167c-41f3-b6c5-caee6a383b36)
     (at 136.9822 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -37531,7 +37531,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp e391696c-12f6-419d-a5c1-8f599d603740)
     (at 107.2642 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -37669,7 +37669,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp e761ed2f-35cf-4224-a6d2-01d848891817)
     (at 176.6062 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -40414,7 +40414,7 @@
     )
   )
 
-  (footprint "0Local:LED_0402_1005Metric" locked (layer "B.Cu")
+  (footprint "0Local:LED_0402_1005Metric" (layer "B.Cu")
     (tedit 5F68FEF1) (tstamp fd3c7578-472c-440a-b067-c2fd5f945eb3)
     (at 156.7942 59.6646)
     (descr "LED SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
@@ -40637,10 +40637,10 @@
   (gr_text "M RNG" (at 116.5459 73.914) (layer "B.SilkS") (tstamp ea204eb7-d0c5-4773-a988-8ae6aa638d1f)
     (effects (font (size 1.778 1.778) (thickness 0.254)) (justify mirror))
   )
-  (gr_text "${COMMENT1}\n${COMMENT2}" (at 90.717 76.44447) (layer "F.SilkS") (tstamp 5ebc4530-afbe-4c1e-a60b-ea1145e24dde)
+  (gr_text "${COMMENT1}\n${COMMENT2}" (at 134.024 78.22247) (layer "F.SilkS") (tstamp 5ebc4530-afbe-4c1e-a60b-ea1145e24dde)
     (effects (font (size 1 1) (thickness 0.15)) (justify left))
   )
-  (gr_text "${TITLE} v${REVISION}" (at 90.717 73.39647) (layer "F.SilkS") (tstamp c1b3b5f0-e1cb-4719-b056-375ec84c17c8)
+  (gr_text "${TITLE} v${REVISION}" (at 134.024 75.17447) (layer "F.SilkS") (tstamp c1b3b5f0-e1cb-4719-b056-375ec84c17c8)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
 
@@ -42489,4 +42489,12 @@
   (segment (start 87.9856 67.3886) (end 88.666041 66.708159) (width 0.127) (layer "B.Cu") (net 58) (tstamp ee846670-a89e-48b3-a9c1-815ba47d4580))
   (segment (start 86.233 66.766274) (end 86.233 64.7724) (width 0.127) (layer "B.Cu") (net 58) (tstamp faa3b6da-e1a0-4dd8-aea8-74eac86fc951))
 
+  (group "" (id be02ba93-b430-4f11-be97-f111a0da7b29)
+    (members
+      5ebc4530-afbe-4c1e-a60b-ea1145e24dde
+      a7273ed8-dfd8-4193-8866-821e15df56ee
+      c1b3b5f0-e1cb-4719-b056-375ec84c17c8
+      dc3174fb-db78-4ca7-847f-77bd03fdba3c
+    )
+  )
 )
