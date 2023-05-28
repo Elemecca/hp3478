@@ -73,6 +73,14 @@
 ; Program Section
 
 ;-----------------------------------------------------------
+wait_digit:
+    btss    INTCON, T0IF
+    ljump   wait_digit
+    clrr    TMR0
+    bcr     INTCON, T0IF
+    ret
+
+;-----------------------------------------------------------
 write_lcd:
     ; set up status read
     ldwi    0x21
@@ -138,13 +146,17 @@ write_lcd_shift:
 
 ;-----------------------------------------------------------
 main:
-	clrr	PORTC       ; preset all outputs off
-    bsr     STATUS, PAGE; page 1
+	clrr	PORTC   ; preset all outputs off
+    clrr    T0CON0  ; T0: disable, from inst. clock
+    bsr     STATUS, PAGE
     ldwi    0x71
-    str     OSCCON      ; select 16 MHz internal oscillator
+    str     OSCCON  ; select 16 MHz internal oscillator
+    ldwi    0x04
+    str     OPTION  ; T0 from internal, scaler for T0, scaler = 32
+    ldwi    0x33
+    str		WPUC    ; enable weak pull-up on port C
     ldwi    0xCC
-    str     TRISC       ; set port C to output
-    bsr		WPUC, 0     ; enable weak pull-up on data pin
+    str     TRISC   ; set port C to output
 
     ; initialize display RAM from EEPROM
 	ldwi    0x70
@@ -161,7 +173,10 @@ loop_load_lcd:
     btss    STATUS, Z
     ljump   loop_load_lcd
 
-    bcr     STATUS, 5   ; page 0
+    bcr     STATUS, PAGE
+
+    bsr     T0CON0, T0ON
+
 
     ; initialize display hardware
     clrr    wlcd_inst		; instruction register
@@ -171,7 +186,7 @@ loop_load_lcd:
     ldwi    0x01
     str     wlcd_data
     lcall   write_lcd       ; clear display
-    ldwi    0x0E
+    ldwi    0x0C
     str     wlcd_data
     lcall   write_lcd       ; display on
 
@@ -185,6 +200,7 @@ main_loop:
 	ldwi	lcd_row_1
     str     FSR
 loop_lcd_row1:
+    call    wait_digit
     ldr     INDF, W
     str     wlcd_data
     lcall   write_lcd
@@ -199,6 +215,7 @@ loop_lcd_row1:
     bsr     wlcd_inst, 0    ; data register
 
 loop_lcd_row2:
+    call    wait_digit
     ldr     INDF, W
     str     wlcd_data
     lcall   write_lcd
