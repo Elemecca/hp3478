@@ -300,8 +300,8 @@ int_data_ann_loop:
     ldr     FSR, W
     str     host_digit
 
-    ; done after 0x50
-    ldwi    0x50
+    ; done after 0x60
+    ldwi    0x60
     subwf   host_digit, W
     btss    STATUS, C
     clrr    host_mode
