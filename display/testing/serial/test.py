@@ -41,13 +41,12 @@ def main():
         if bits:
             out = 'C' if last_sync else 'D'
 
-            if len(bits) % 8 == 2:
-                out = out + ' ' + bits[:2]
-                bits = bits[2:]
+            out = out + ' ' + bits[:2]
+            bits = bits[2:]
 
             while bits:
-                out = out + ' ' + bits[:8]
-                bits = bits[8:]
+                out = out + ' ' + bits[:4]
+                bits = bits[4:]
 
             print(out)
 
