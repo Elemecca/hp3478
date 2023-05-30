@@ -247,6 +247,11 @@ int_data_digit_high:
     andwi   0x30
     iorwr   int_scratch, W
     str     INDF
+    
+    ; the host sends 0x40 - 0x5F as 0x00 - 0x1F
+    ; add back the missing 0x40 bit
+    btss    INDF, 5
+    bsr     INDF, 6
 
     ; put din[7:6] in extra[2:1]
     ldwi    0x10
@@ -264,10 +269,10 @@ int_data_digit_end:
     clrr    host_din
 
     decr    host_digit, R
-    ldwi    0x5F
+    ldwi    0x50
     subwf   host_digit, W
-    btsc    STATUS, Z
-    clrr    host_mode  ; done after 0x60
+    btss    STATUS, C
+    clrr    host_mode  ; done after 0x50
 
     ljump   int_end    
     
@@ -289,14 +294,16 @@ int_data_ann_loop:
     decrsz  host_bit, R
     ljump   int_data_ann_loop
     
+    clrr    host_din
     ldwi    4
     str     host_bit
     ldr     FSR, W
     str     host_digit
 
-    ; done after 0x6B    
-    subwi   0x5F
-    btsc    STATUS, Z
+    ; done after 0x50
+    ldwi    0x50
+    subwf   host_digit, W
+    btss    STATUS, C
     clrr    host_mode
 
 
