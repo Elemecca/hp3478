@@ -22,6 +22,7 @@
 
     ; port A
     HP2   equ 2
+    HP1   equ 3
     HPWO  equ 4
     HSYNC equ 5
     HISA  equ 6
@@ -81,11 +82,12 @@
 ; Defines
 
     ; bits for host_mode
-    MODE_CMD    equ 0
-    MODE_DIGIT  equ 1
-    MODE_HIGH   equ 2
-    MODE_ANN    equ 3
-    MODE_SKIP   equ 4
+    MODE_READ   equ 0
+    MODE_CMD    equ 1
+    MODE_SKIP   equ 2
+    MODE_DIGIT  equ 3
+    MODE_HIGH   equ 4
+    MODE_ANN    equ 5
 
     ; host protocol commands
     CMD_LOW     equ 0x0A
@@ -107,75 +109,90 @@
     str     int_temp_status
     ldr     FSR, W
     str     int_temp_fsr
-    bcr     STATUS, PAGE
-    
+    clrr    STATUS
+
+    ; when PWO is low, reset state and ignore everything    
+    btsc    PORTA, HPWO
+    ljump   int_sync
+    clrr    host_mode
+    ljump   int_end
+
+
 int_sync:
-    btss    INTCON, PAIF
-    ljump   int_clock
-    
     btss    PORTA, HSYNC
     ljump   int_sync_data
     
 int_sync_cmd:
-    ldwi    1<<MODE_CMD
+    ; if we were already in command mode, just handle data
+    btsc    host_mode, MODE_CMD
+    ljump   int_shift
+
+    ; enter command mode
+    ldwi    1<<MODE_READ | 1<<MODE_CMD
     str     host_mode
     clrr    host_din
-
-    ljump   int_end
+    ljump   int_shift
 
 int_sync_data:
+    ; if we were already not in command mode, just handle data
+    btss    host_mode, MODE_CMD
+    ljump   int_shift
+
+    ; we're switching from command to data mode
+    ; set up for the given command
     ldr     host_din, W
     sublw   CMD_LOW
     btsc    STATUS, Z
-    ljump   int_cmd_low
+    ljump   int_cmd_digit_low
     
     ldr     host_din, W
     sublw   CMD_HIGH
     btsc    STATUS, Z
-    ljump   int_cmd_high
+    ljump   int_cmd_digit_high
 
     ldr     host_din, W
     sublw   CMD_ANN
     btsc    STATUS, Z
     ljump   int_cmd_ann
 
+    ; unsupported command, ignore until the next command
+    clrr    host_mode
     ljump   int_end
 
-int_cmd_low:
-    ldwi    1<<MODE_DIGIT | 1<<MODE_SKIP
+int_cmd_digit_low:
+    ldwi    1<<MODE_READ | 1<<MODE_DIGIT | 1<<MODE_SKIP
     str     host_mode
     ldwi    2
     str     host_bit
     ldwi    0x5B
     str     host_digit
+    ljump   int_shift
 
-    ljump   int_end
-
-int_cmd_high:
-    ldwi    1<<MODE_DIGIT | 1<<MODE_HIGH | 1<<MODE_SKIP
+int_cmd_digit_high:
+    ldwi    1<<MODE_READ | 1<<MODE_DIGIT | 1<<MODE_HIGH | 1<<MODE_SKIP
     str     host_mode
     ldwi    2
     str     host_bit
     ldwi    0x5B
     str     host_digit
-
-    ljump   int_end
+    ljump   int_shift
     
 int_cmd_ann:
-    ldwi    1<<MODE_ANN | 1<<MODE_SKIP
+    ldwi    1<<MODE_READ | 1<<MODE_ANN | 1<<MODE_SKIP
     str     host_mode
     ldwi    2
     str     host_bit
-    ldwi    0x60
+    ldwi    0x6B
     str     host_digit
+    ljump   int_shift
 
-    ljump   int_end
 
-
-int_clock:
-    btss    INTCON, INTF
+int_shift:
+    ; don't bother reading if we don't need to
+    btss    host_mode, MODE_READ
     ljump   int_end
     
+    ; shift a data bit into the buffer
     rlr     PORTA, W        ; put IWA in C
     str     int_scratch
     btsc    host_mode, MODE_CMD
@@ -188,9 +205,10 @@ int_clock:
     ldwi    4
     str     host_bit
 
+    ; if we were skipping leader bits
+    ; switch to normal read mode but ignore this bit
     btss    host_mode, MODE_SKIP
     ljump   int_data
-
     bcr     host_mode, MODE_SKIP
     clrr    host_din
     ljump   int_end
@@ -246,8 +264,10 @@ int_data_digit_end:
     clrr    host_din
 
     decr    host_digit, R
-    btsc    host_digit, 4
-    clrr    host_mode  ; done if < 0x60
+    ldwi    0x5F
+    subwf   host_digit, W
+    btsc    STATUS, Z
+    clrr    host_mode  ; done after 0x60
 
     ljump   int_end    
     
@@ -261,11 +281,11 @@ int_data_ann_loop:
     andwr   STATUS, W
     str     int_scratch
     ldr     INDF, W
-    andwi   0xFC
+    andwi   0xFE
     iorwr   int_scratch, W
     str     INDF
 
-    incr    FSR, R    
+    decr    FSR, R    
     decrsz  host_bit, R
     ljump   int_data_ann_loop
     
@@ -274,8 +294,13 @@ int_data_ann_loop:
     ldr     FSR, W
     str     host_digit
 
+    ; done after 0x6B    
+    subwi   0x5F
+    btsc    STATUS, Z
+    clrr    host_mode
+
+
 int_end:
-    bcr     INTCON, PAIF
     bcr     INTCON, INTF
     ldr     int_temp_fsr, W
     str     FSR
@@ -284,6 +309,7 @@ int_end:
     swapr   int_temp_w, R
     swapr   int_temp_w, W
     reti
+
 
 ;===========================================================
 ; Program Section
@@ -362,7 +388,6 @@ write_lcd_shift:
 
 ;-----------------------------------------------------------
 main:
-	ldr     PORTA, W; preload PAI latch
     clrr	PORTC   ; preset all outputs off
     clrr    T0CON0  ; T0: disable, from inst. clock
 
@@ -377,7 +402,6 @@ main:
     ldwi    0xCC
     str     TRISC   ; set port C to output
     ldwi    1<<HSYNC
-    str     IOCA    ; int. on change for SYNC (PA5)
 
     bcr     STATUS, PAGE
     
@@ -405,7 +429,7 @@ loop_init_2:
     str     0x6E
     str     0x6F
 
-    ldwi    1<<GIE | 1<<INTE | 1<<PAIE
+    ldwi    1<<GIE | 1<<INTE
     str     INTCON
     bsr     T0CON0, T0ON
     
