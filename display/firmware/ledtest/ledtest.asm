@@ -18,6 +18,23 @@
 #include  <FT60F12X.INC>
 
 ;===========================================================
+; Pins
+
+    ; port A
+    HP2   equ 2
+    HPWO  equ 4
+    HSYNC equ 5
+    HISA  equ 6
+    HIWA  equ 7
+    
+    ; port C
+    DSD   equ 0
+    DSC   equ 1
+    DLC   equ 4
+    DOE   equ 5
+
+
+;===========================================================
 ; RAM Map
 
 ;-----------------------------------------------------------
@@ -28,6 +45,16 @@
     wlcd_inst   equ 0x21
     wlcd_data   equ 0x22
 
+    ; host
+    host_mode   equ 0x30
+    host_din    equ 0x31
+    host_porta  equ 0x32
+    host_skip   equ 0x33
+    host_bit    equ 0x34
+    host_digit  equ 0x35
+
+    scratch     equ 0x4E
+    int_scratch equ 0x4F
 
 	lcd_row_1   equ 0x50 ; - 0x5F
     lcd_row_2   equ 0x60 ; - 0x6F
@@ -40,14 +67,30 @@
 ; bank 0  0x70 - 0x7F
 ; bank 1  0xF0 - 0xFF
 
-	; interrupt handler
+	; interrupt vector
     int_temp_w      equ 0x70
     int_temp_status	equ 0x71
+    int_temp_fsr    equ 0x72
 
 ;===========================================================
 ; EEPROM Map
 
     ee_lcd_init     equ 0x00 ; - 0x1F
+
+;===========================================================
+; Defines
+
+    ; bits for host_mode
+    MODE_CMD    equ 0
+    MODE_DIGIT  equ 1
+    MODE_HIGH   equ 2
+    MODE_ANN    equ 3
+    MODE_SKIP   equ 4
+
+    ; host protocol commands
+    CMD_LOW     equ 0x0A
+    CMD_HIGH    equ 0x1A
+    CMD_ANN     equ 0xBC
 
 ;===========================================================
 ; Boot Vector
@@ -62,7 +105,180 @@
     str     int_temp_w
     swapr   STATUS, W  ; ldr sets Z, swapr doesn't
     str     int_temp_status
+    ldr     FSR, W
+    str     int_temp_fsr
+    bcr     STATUS, PAGE
+    
+int_sync:
+    btss    INTCON, PAIF
+    ljump   int_clock
+    
+    btss    PORTA, HSYNC
+    ljump   int_sync_data
+    
+int_sync_cmd:
+    ldwi    1<<MODE_CMD
+    str     host_mode
+    clrr    host_din
 
+    ljump   int_end
+
+int_sync_data:
+    ldr     host_din, W
+    sublw   CMD_LOW
+    btsc    STATUS, Z
+    ljump   int_cmd_low
+    
+    ldr     host_din, W
+    sublw   CMD_HIGH
+    btsc    STATUS, Z
+    ljump   int_cmd_high
+
+    ldr     host_din, W
+    sublw   CMD_ANN
+    btsc    STATUS, Z
+    ljump   int_cmd_ann
+
+    ljump   int_end
+
+int_cmd_low:
+    ldwi    1<<MODE_DIGIT | 1<<MODE_SKIP
+    str     host_mode
+    ldwi    2
+    str     host_bit
+    ldwi    0x5B
+    str     host_digit
+
+    ljump   int_end
+
+int_cmd_high:
+    ldwi    1<<MODE_DIGIT | 1<<MODE_HIGH | 1<<MODE_SKIP
+    str     host_mode
+    ldwi    2
+    str     host_bit
+    ldwi    0x5B
+    str     host_digit
+
+    ljump   int_end
+    
+int_cmd_ann:
+    ldwi    1<<MODE_ANN | 1<<MODE_SKIP
+    str     host_mode
+    ldwi    2
+    str     host_bit
+    ldwi    0x60
+    str     host_digit
+
+    ljump   int_end
+
+
+int_clock:
+    btss    INTCON, INTF
+    ljump   int_end
+    
+    rlr     PORTA, W        ; put IWA in C
+    str     int_scratch
+    btsc    host_mode, MODE_CMD
+    rlr     int_scratch, R  ; put ISA in C (only in command mode)
+    rrr     host_din, R     ; shift din right, set din(7) to C
+
+    decrsz  host_bit, R
+    ljump   int_end
+    
+    ldwi    4
+    str     host_bit
+
+    btss    host_mode, MODE_SKIP
+    ljump   int_data
+
+    bcr     host_mode, MODE_SKIP
+    clrr    host_din
+    ljump   int_end
+
+int_data:
+    ldr     host_digit, W
+    str     FSR
+
+    btsc    host_mode, MODE_DIGIT
+    ljump   int_data_digit
+    
+    btsc    host_mode, MODE_ANN
+    ljump   int_data_ann
+    
+    ljump   int_end
+
+    
+int_data_digit:
+    btsc    host_mode, MODE_HIGH
+    ljump   int_data_digit_high
+    
+int_data_digit_low:
+    ldr     INDF, W
+    andwi   0xF0
+    swapr   host_din, R
+    iorwr   host_din, W
+    str     INDF
+    ljump   int_data_digit_end
+
+int_data_digit_high:
+    ; put din[5:4] in digit[5:4]
+    ldr     INDF, W
+    andwi   0x0F
+    str     int_scratch
+    ldr     host_din, W
+    andwi   0x30
+    iorwr   int_scratch, W
+    str     INDF
+
+    ; put din[7:6] in extra[2:1]
+    ldwi    0x10
+    addwr   FSR, R  ; switch to the extras row
+    swapr   host_din, R
+    rrr     host_din, W
+    andwi   0x06
+    str     host_din
+    ldr     INDF, W
+    andwi   0xF9
+    iorwr   host_din, W
+    str     INDF
+
+int_data_digit_end:
+    clrr    host_din
+
+    decr    host_digit, R
+    btsc    host_digit, 4
+    clrr    host_mode  ; done if < 0x60
+
+    ljump   int_end    
+    
+
+int_data_ann:
+    swapr   host_din, R
+
+int_data_ann_loop:
+    rrr     host_din, R
+    ldwi    0x01
+    andwr   STATUS, W
+    str     int_scratch
+    ldr     INDF, W
+    andwi   0xFC
+    iorwr   int_scratch, W
+    str     INDF
+
+    incr    FSR, R    
+    decrsz  host_bit, R
+    ljump   int_data_ann_loop
+    
+    ldwi    4
+    str     host_bit
+    ldr     FSR, W
+    str     host_digit
+
+int_end:
+    bcr     INTCON, PAIF
+    bcr     INTCON, INTF
+    ldr     int_temp_fsr, W
+    str     FSR
     swapr   int_temp_status, W
     str     STATUS
     swapr   int_temp_w, R
@@ -146,38 +362,53 @@ write_lcd_shift:
 
 ;-----------------------------------------------------------
 main:
-	clrr	PORTC   ; preset all outputs off
+	ldr     PORTA, W; preload PAI latch
+    clrr	PORTC   ; preset all outputs off
     clrr    T0CON0  ; T0: disable, from inst. clock
+
     bsr     STATUS, PAGE
+
     ldwi    0x71
     str     OSCCON  ; select 16 MHz internal oscillator
-    ldwi    0x04
+    ldwi    0x44    ; PA2 interrupt on rising edge
     str     OPTION  ; T0 from internal, scaler for T0, scaler = 32
     ldwi    0x33
     str		WPUC    ; enable weak pull-up on port C
     ldwi    0xCC
     str     TRISC   ; set port C to output
-
-    ; initialize display RAM from EEPROM
-	ldwi    0x70
-    str     FSR
-    ldwi    0x20
-    str     EEADR
-loop_load_lcd:
-    decr	FSR, R
-    decr    EEADR, R
-    bsr     EECON1, RD
-    ldr     EEDAT, W
-    str     INDF
-	ldr     EEADR, R
-    btss    STATUS, Z
-    ljump   loop_load_lcd
+    ldwi    1<<HSYNC
+    str     IOCA    ; int. on change for SYNC (PA5)
 
     bcr     STATUS, PAGE
+    
+    ldwi    0x50
+    str     FSR
+    ldwi    0x20 ; space
+loop_init_1:
+    str     INDF
+    incr    FSR, R
+    btsc    FSR, 4 ; while < 0x60
+    ljump   loop_init_1
+    
+loop_init_2:
+    ldwi    0x30 ; zero
+    str     INDF
+    incr    FSR, R
+    ldwi    0x6C
+    subwr   FSR, W
+    btss    STATUS, Z
+    ljump   loop_init_2
 
+    ldwi    0x20 ; space    
+    str     0x6C
+    str     0x6D
+    str     0x6E
+    str     0x6F
+
+    ldwi    1<<GIE | 1<<INTE | 1<<PAIE
+    str     INTCON
     bsr     T0CON0, T0ON
-
-
+    
     ; initialize display hardware
     clrr    wlcd_inst		; instruction register
     ldwi    0x38
