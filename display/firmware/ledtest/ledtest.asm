@@ -253,16 +253,17 @@ int_data_digit_high:
     btss    INDF, 5
     bsr     INDF, 6
 
-    ; put din[7:6] in extra[2:1]
+    ; put din[7:6] in extra[1:0]
     ldwi    0x10
     addwr   FSR, R  ; switch to the extras row
-    swapr   host_din, R
-    rrr     host_din, W
-    andwi   0x06
-    str     host_din
     ldr     INDF, W
-    andwi   0xF9
-    iorwr   host_din, W
+    andwi   0xFC
+    str     int_scratch
+    swapr   host_din, R
+    rrr     host_din, R
+    rrr     host_din, W
+    andwi   0x03
+    iorwr   int_scratch, W
     str     INDF
 
 int_data_digit_end:
@@ -278,16 +279,16 @@ int_data_digit_end:
     
 
 int_data_ann:
-    swapr   host_din, R
+    rrr     host_din, R
 
 int_data_ann_loop:
-    rrr     host_din, R
-    ldwi    0x01
-    andwr   STATUS, W
-    str     int_scratch
     ldr     INDF, W
-    andwi   0xFE
-    iorwr   int_scratch, W
+    andwi   0xFB
+    str     int_scratch
+    rrr     host_din, R
+    ldr     host_din, W
+    andwi   0x04
+    iorwf   int_scratch, W
     str     INDF
 
     decr    FSR, R    
@@ -420,21 +421,13 @@ loop_init_1:
     incr    FSR, R
     btsc    FSR, 4 ; while < 0x60
     ljump   loop_init_1
-    
+
 loop_init_2:
-    ldwi    0x30 ; zero
-    str     INDF
+    clrr    INDF
     incr    FSR, R
-    ldwi    0x6C
-    subwr   FSR, W
-    btss    STATUS, Z
+    btss    FSR, 4 ; while < 0x70
     ljump   loop_init_2
 
-    ldwi    0x20 ; space    
-    str     0x6C
-    str     0x6D
-    str     0x6E
-    str     0x6F
 
     ldwi    1<<GIE | 1<<INTE
     str     INTCON
@@ -451,6 +444,27 @@ loop_init_2:
     ldwi    0x0C
     str     wlcd_data
     lcall   write_lcd       ; display on
+
+    ldwi    0x40
+    str     wlcd_data
+    lcall   write_lcd       ; set CGRAM address 0x00
+    bsr     wlcd_inst, 0    ; data register
+    bsr     STATUS, PAGE
+    clrr    EEADR
+cgram_loop:
+    bsr     EECON1, RD
+    ldr     EEDAT, W
+    bcr     STATUS, PAGE
+    str     wlcd_data
+    lcall   write_lcd
+    bsr     STATUS, PAGE
+    incr    EEADR, R
+    ldwi    0x40
+    subwr   EEADR, W
+    btss    STATUS, C
+    ljump   cgram_loop
+    
+    bcr     STATUS, PAGE
 
 main_loop:
 	clrr    wlcd_inst		; instruction register
