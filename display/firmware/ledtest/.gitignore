@@ -1,6 +1,7 @@
-
+# files created by FMD IDE
 *.DML
 *.FAT
 *.HEX
 *.LBB
-ledtest.bin
+/ledtest.bin
+/new
