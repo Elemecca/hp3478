@@ -27,7 +27,7 @@
     HSYNC equ 5
     HISA  equ 6
     HIWA  equ 7
-    
+
     ; port C
     DSD   equ 0
     DSC   equ 1
@@ -41,7 +41,7 @@
 ;-----------------------------------------------------------
 ; bank 0  0x20 - 0x6F
 
-	; write_lcd
+    ; write_lcd
     wlcd_ctr    equ 0x20
     wlcd_inst   equ 0x21
     wlcd_data   equ 0x22
@@ -57,7 +57,7 @@
     scratch     equ 0x4E
     int_scratch equ 0x4F
 
-	lcd_row_1   equ 0x50 ; - 0x5F
+    lcd_row_1   equ 0x50 ; - 0x5F
     lcd_row_2   equ 0x60 ; - 0x6F
 
 ;-----------------------------------------------------------
@@ -68,9 +68,9 @@
 ; bank 0  0x70 - 0x7F
 ; bank 1  0xF0 - 0xFF
 
-	; interrupt vector
+    ; interrupt vector
     int_temp_w      equ 0x70
-    int_temp_status	equ 0x71
+    int_temp_status    equ 0x71
     int_temp_fsr    equ 0x72
 
 ;===========================================================
@@ -111,7 +111,7 @@
     str     int_temp_fsr
     clrr    STATUS
 
-    ; when PWO is low, reset state and ignore everything    
+    ; when PWO is low, reset state and ignore everything
     btsc    PORTA, HPWO
     ljump   int_sync
     clrr    host_mode
@@ -121,7 +121,7 @@
 int_sync:
     btss    PORTA, HSYNC
     ljump   int_sync_data
-    
+
 int_sync_cmd:
     ; if we were already in command mode, just handle data
     btsc    host_mode, MODE_CMD
@@ -144,7 +144,7 @@ int_sync_data:
     sublw   CMD_LOW
     btsc    STATUS, Z
     ljump   int_cmd_digit_low
-    
+
     ldr     host_din, W
     sublw   CMD_HIGH
     btsc    STATUS, Z
@@ -176,7 +176,7 @@ int_cmd_digit_high:
     ldwi    0x5B
     str     host_digit
     ljump   int_shift
-    
+
 int_cmd_ann:
     ldwi    1<<MODE_READ | 1<<MODE_ANN | 1<<MODE_SKIP
     str     host_mode
@@ -191,7 +191,7 @@ int_shift:
     ; don't bother reading if we don't need to
     btss    host_mode, MODE_READ
     ljump   int_end
-    
+
     ; shift a data bit into the buffer
     rlr     PORTA, W        ; put IWA in C
     str     int_scratch
@@ -201,7 +201,7 @@ int_shift:
 
     decrsz  host_bit, R
     ljump   int_end
-    
+
     ldwi    4
     str     host_bit
 
@@ -219,17 +219,17 @@ int_data:
 
     btsc    host_mode, MODE_DIGIT
     ljump   int_data_digit
-    
+
     btsc    host_mode, MODE_ANN
     ljump   int_data_ann
-    
+
     ljump   int_end
 
-    
+
 int_data_digit:
     btsc    host_mode, MODE_HIGH
     ljump   int_data_digit_high
-    
+
 int_data_digit_low:
     ldr     INDF, W
     andwi   0xF0
@@ -247,7 +247,7 @@ int_data_digit_high:
     andwi   0x30
     iorwr   int_scratch, W
     str     INDF
-    
+
     ; the host sends 0x40 - 0x5F as 0x00 - 0x1F
     ; add back the missing 0x40 bit
     btss    INDF, 5
@@ -275,8 +275,8 @@ int_data_digit_end:
     btss    STATUS, C
     clrr    host_mode  ; done after 0x50
 
-    ljump   int_end    
-    
+    ljump   int_end
+
 
 int_data_ann:
     rrr     host_din, R
@@ -291,10 +291,10 @@ int_data_ann_loop:
     iorwf   int_scratch, W
     str     INDF
 
-    decr    FSR, R    
+    decr    FSR, R
     decrsz  host_bit, R
     ljump   int_data_ann_loop
-    
+
     clrr    host_din
     ldwi    4
     str     host_bit
@@ -336,19 +336,19 @@ write_lcd:
     ldwi    0x21
     str     PORTC       ; R/W=R(1), OE off, clock low
     bsr     PORTC, 1    ; clock high
-    ldwi	0x20
+    ldwi    0x20
     str     PORTC       ; RS=IR(0), OE off, clock low
     bsr     PORTC, 1    ; clock high
-    bcr		PORTC, 1	; clock low
+    bcr        PORTC, 1    ; clock low
     bsr     PORTC, 1    ; clock high
-    bcr		PORTC, 1	; clock low
+    bcr        PORTC, 1    ; clock low
     bsr     STATUS, 5   ; page 1
     bsr     TRISC, 0    ; data as input
     bcr     STATUS, 5   ; page 0
     bsr     PORTC, 4    ; enable
     nop
     nop                 ; wait for data valid >= 160 ns (250 ns)
-    
+
     ; wait for the busy flag to clear
 write_lcd_wait:
     btsc    PORTC, 0
@@ -367,21 +367,21 @@ write_lcd_shift:
     rlr     wlcd_data, R  ; puts the high-order bit in C
     ldr     STATUS, W   ; get C into W
     andwi   0x01        ; keep only C as the DSD pin
-    iorwi	0x20        ; OE off
+    iorwi    0x20        ; OE off
     str     PORTC
     bsr     PORTC, 1    ; clock high
 
     decrsz  wlcd_ctr, 1
     ljump   write_lcd_shift
 
-    ldwi	0x20
+    ldwi    0x20
     str     PORTC       ; R/W=0(W), OE off, clock low
     bsr     PORTC, 1    ; clock high
     ldr     wlcd_inst, 0
-    iorwi	0x20
+    iorwi    0x20
     str     PORTC       ; register select, OE off, clock low
     bsr     PORTC, 1    ; clock high
-    bcr		PORTC, 1	; clock low
+    bcr        PORTC, 1    ; clock low
     bsr     PORTC, 1    ; clock high
     clrr    PORTC       ; clock low, output on
     bsr     PORTC, 4    ; enable
@@ -396,7 +396,7 @@ write_lcd_shift:
 
 ;-----------------------------------------------------------
 main:
-    clrr	PORTC   ; preset all outputs off
+    clrr    PORTC   ; preset all outputs off
     clrr    T0CON0  ; T0: disable, from inst. clock
 
     bsr     STATUS, PAGE
@@ -406,13 +406,13 @@ main:
     ldwi    0x44    ; PA2 interrupt on rising edge
     str     OPTION  ; T0 from internal, scaler for T0, scaler = 32
     ldwi    0x33
-    str		WPUC    ; enable weak pull-up on port C
+    str        WPUC    ; enable weak pull-up on port C
     ldwi    0xCC
     str     TRISC   ; set port C to output
     ldwi    1<<HSYNC
 
     bcr     STATUS, PAGE
-    
+
     ldwi    0x50
     str     FSR
     ldwi    0x20 ; space
@@ -432,9 +432,9 @@ loop_init_2:
     ldwi    1<<GIE | 1<<INTE
     str     INTCON
     bsr     T0CON0, T0ON
-    
+
     ; initialize display hardware
-    clrr    wlcd_inst		; instruction register
+    clrr    wlcd_inst        ; instruction register
     ldwi    0x38
     str     wlcd_data
     lcall   write_lcd       ; function set: 8-bit, 2 lines
@@ -463,17 +463,17 @@ cgram_loop:
     subwr   EEADR, W
     btss    STATUS, C
     ljump   cgram_loop
-    
+
     bcr     STATUS, PAGE
 
 main_loop:
-	clrr    wlcd_inst		; instruction register
+    clrr    wlcd_inst        ; instruction register
     ldwi    0x80
     str     wlcd_data
     lcall   write_lcd       ; set DDRAM address 0x00 (start of first row)
     bsr     wlcd_inst, 0    ; data register
 
-	ldwi	lcd_row_1
+    ldwi    lcd_row_1
     str     FSR
 loop_lcd_row1:
     call    wait_digit
@@ -484,7 +484,7 @@ loop_lcd_row1:
     btss    FSR, 5          ; FSR >= 0x60
     ljump   loop_lcd_row1
 
-	clrr    wlcd_inst		; instruction register
+    clrr    wlcd_inst        ; instruction register
     ldwi    0xC0
     str     wlcd_data
     lcall   write_lcd       ; set DDRAM address 0x40 (start of second row)
